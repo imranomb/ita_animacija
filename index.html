@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .container
+        {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        #krug_1
+        {
+            z-index: 1;
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            background-color: black;
+        }
+        #krug_1::before
+        {
+            content: "";
+            position: absolute;
+            background-color: #140c2e;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            animation: animacija_2 infinite 1s ease-out;
+        }
+        #krug_2
+        {
+            position: absolute;
+            z-index: 0;
+            width: 290px;
+            height: 290px;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);    
+            border-radius: 100%;
+            animation: animacija_1 infinite 1s linear;
+        }
+        #krug_2::after
+        {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);   
+            border-radius: 100%;
+            filter: blur(15px);            
+        }
+        @keyframes animacija_1 
+        {
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            100% 
+            {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes animacija_2 
+        {
+            0% 
+            {
+                transform: scale(0);
+                filter: brightness(10%);
+            }
+            100% 
+            {
+                transform: scale(1);
+                filter: brightness(100%);
+            }
+        }
+    </style>
+    <div class="container">
+        <div id="krug_1"></div>
+        <div id="krug_2"></div>
+    </div>
+    
+</body>
+</html>
